@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "simplecrm-a0492": {
+      "hosting": {
+        "simple-crm": [
+          "simplecrm-a0492"
+        ]
+      }
+    },
+    "simplefiredb": {
+      "hosting": {
+        "simple-crm": [
+          "simplefiredb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "simplefiredb"
+  }
+}
