@@ -34,14 +34,10 @@ export class DialogAddUserComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
   ngOnInit(): void {
-    // this.getUser();
-    // this.saveUser();
-    // console.log(this.items$);
+
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+
 
   getUser() {
     return collection(this.firestore, 'users');
@@ -58,9 +54,7 @@ export class DialogAddUserComponent implements OnInit {
     }
     const usersRef = collection(this.firestore, 'users');
     await addDoc(usersRef, this.user.toJSON());
-    console.log(this.user);
     this.loading = false;
-    console.log('Sending static data: { users: "Tom" }');
     this.dialogRef.close();
   }
 }

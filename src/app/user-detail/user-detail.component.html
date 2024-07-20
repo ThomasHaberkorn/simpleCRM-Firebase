@@ -1,0 +1,44 @@
+<mat-card class="user-detail-header" *ngIf="user$ | async as user">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+    </mat-menu>
+
+
+    <img src="assets/img/lady.png" alt="">
+    <div class="header">
+        <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+        <p>E-Mail: {{ user.eMail }}</p>
+    </div>
+</mat-card>
+
+<mat-card class="user-detail-lower-card mt-32" *ngIf="user$ | async as user">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editAddressDetail()">Edit</button>
+    </mat-menu>
+
+    <mat-card-header>
+        <mat-card-title>Address</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="static">
+            <p>Street: </p>
+            <p>City: </p>
+            <p>Zip Code: </p>
+            <p>Birth Date: </p>
+        </div>
+        <div class="variable">
+            <p>{{ user.street }}</p>
+            <p>{{ user.city }}</p>
+            <p>{{ user.zipCode }}</p>
+            <p>{{ user.birthDate | date: 'dd.MM.yyyy' }}</p>
+        </div>
+    </mat-card-content>
+</mat-card>

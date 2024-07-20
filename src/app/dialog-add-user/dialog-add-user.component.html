@@ -15,6 +15,14 @@
                 <!-- <mat-hint>Please enter a name</mat-hint> -->
             </mat-form-field>
         </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>E-Mail</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.eMail" matInput placeholder="E-Mail">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
         <div>
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Birth Date</mat-label>
@@ -33,7 +41,7 @@
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field class=" mr-16" appearance="outline">
+            <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>Zip code</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code">
                 <!-- <mat-hint>Please enter a name</mat-hint> -->
@@ -46,7 +54,7 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions>
-        <button mat-stroked-button color="primary" (click)="onNoClick()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
         <button mat-stroked-button color="primary" (click)="saveUser()" cdkFocusInitial>Save</button>
     </mat-dialog-actions>
 </div>
