@@ -1,1 +1,43 @@
-<p>dialog-edit-address works!</p>
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Address</h1>
+    <mat-dialog-content>
+
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Street + Nr.</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street + Nr.">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="mr-16" appearance="outline">
+                <mat-label>Zip code</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+
+        </div>
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Birth Date</mat-label>
+                <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Birth Date"
+                    [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <!-- <mat-hint>Please enter a date</mat-hint> -->
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveUser()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>
