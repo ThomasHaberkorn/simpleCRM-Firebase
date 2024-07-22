@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AppComponent } from '../app.component';
 import { FormsModule } from '@angular/forms';
-import { User } from '../../models/user.class';
+import { User } from '../../../models/user.class';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Firestore, doc } from '@angular/fire/firestore';
 import { updateDoc } from 'firebase/firestore';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-dialog-edit-user',

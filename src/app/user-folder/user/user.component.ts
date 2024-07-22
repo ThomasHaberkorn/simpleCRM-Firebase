@@ -4,12 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
-import { User } from '../../models/user.class';
+import { User } from '../../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
   selector: 'app-user',

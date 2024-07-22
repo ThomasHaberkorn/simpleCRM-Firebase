@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Tasks</mat-card-title>
+    <ng-container *ngFor="let task of allTasks">
+        <mat-card class="singleTask" [routerLink]="['/tasks', task.id]">
+            <h1> {{ task.taskTitle }} </h1>
+            <h2> {{ task.customer }} </h2>
+            <h2> {{ task.userId }} </h2>
+        </mat-card>
+    </ng-container>
+</mat-card>
+
+<button (click)="openDialog()" class="add-task-button" mat-fab color="primary" matTooltip="Add Task"
+    matTooltipPosition="above">
+    <mat-icon>assignment_add</mat-icon>
+</button>

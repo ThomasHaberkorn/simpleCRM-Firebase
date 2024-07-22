@@ -6,10 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { User } from '../../models/user.class';
+import { User } from '../../../models/user.class';
 import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../../app.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 

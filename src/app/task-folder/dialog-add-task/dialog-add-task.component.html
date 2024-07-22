@@ -1,0 +1,32 @@
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit User</h1>
+    <mat-dialog-content>
+
+
+
+        <div>
+            <mat-form-field class="mt-6 mr-16 full-width" appearance="outline">
+                <mat-label>Task title</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.taskTitle" matInput placeholder="Task title">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="full-width">
+            <!-- <mat-label>Employees</mat-label>
+            <mat-select [formControl]="employee" multiple>
+                @for (employee of employeeList; track employee) {
+                <mat-option [value]="employee">{{employee}}</mat-option>
+                }
+            </mat-select> -->
+            <mat-label>Employee</mat-label>
+            <mat-select [formControl]="employee" multiple>
+                <mat-option *ngFor="let employee of employeeList" [value]="employee">{{ employee }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>

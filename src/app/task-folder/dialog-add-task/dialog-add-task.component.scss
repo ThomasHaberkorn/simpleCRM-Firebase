@@ -1,0 +1,23 @@
+.mt-6 {
+    margin-top: 6px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.dialog-container {
+    position: relative;
+    min-width: 500px;
+}
+
+mat-dialog-actions {
+    padding: 0;
+    margin-top: -24px;
+    margin-left: 24px;
+    margin-bottom: 10px;
+}
