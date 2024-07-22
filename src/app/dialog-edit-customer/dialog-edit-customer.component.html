@@ -1,0 +1,32 @@
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Customer</h1>
+    <mat-dialog-content>
+
+        <div>
+            <mat-form-field class="mt-6 mr-16" appearance="outline">
+                <mat-label>Contact person First Name</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.firstName" matInput placeholder="First Name">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact person Last Name</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.lastName" matInput placeholder="Last Name">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Contact person E-Mail</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.eMail" matInput placeholder="E-Mail">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveCustomer()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>

@@ -4,7 +4,7 @@ export class Customer {
     firstName: string;
     lastName: string;
     eMail: string;
-    street: string;
+    // street: string;
     zipCode: number | null;
     city: string;
   
@@ -14,18 +14,19 @@ export class Customer {
       this.firstName = obj ? obj.firstName : '';
       this.lastName = obj ? obj.lastName : '';
       this.eMail = obj ? obj.eMail : '';
-      this.street = obj ? obj.street : '';
+      // this.street = obj ? obj.street : '';
       this.zipCode = obj ? obj.zipCode : null;
       this.city = obj ? obj.city : '';
     }
   
     public toJSON() {
       const data: any = {
+        id: this.id,
         companyName: this.companyName,
         firstName: this.firstName,
         lastName: this.lastName,
         eMail: this.eMail,
-        street: this.street,
+        // street: this.street,
         zipCode: this.zipCode,
         city: this.city
       };

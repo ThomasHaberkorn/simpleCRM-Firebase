@@ -1,0 +1,41 @@
+<mat-card class="customer-detail-header" *ngIf="customer$ | async as customer">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="customerMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #customerMenu="matMenu">
+        <button mat-menu-item (click)="editCustomerDetail()">Edit</button>
+    </mat-menu>
+
+
+    <img src="assets/img/lady.png" alt="">
+    <div class="header">
+        <h1>Contact person: </h1>
+        <h1>{{ customer.firstName }} {{ customer.lastName }}</h1>
+        <p>E-Mail: {{ customer.eMail }}</p>
+    </div>
+</mat-card>
+
+<mat-card class="customer-detail-lower-card mt-32" *ngIf="customer$ | async as customer">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editAddressDetail()">Edit</button>
+    </mat-menu>
+
+    <mat-card-header>
+        <mat-card-title>Address</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="static">
+            <p>City: </p>
+            <p>Zip Code: </p>
+        </div>
+        <div class="variable">
+            <p>{{ customer.city }}</p>
+            <p>{{ customer.zipCode }}</p>
+        </div>
+    </mat-card-content>
+</mat-card>
