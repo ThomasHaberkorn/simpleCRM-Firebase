@@ -7,6 +7,7 @@ export class User {
   street: string;
   zipCode: number | null;
   city: string;
+  img: string;
 
   constructor(obj?: any) {
     this.id = obj ? obj.id : undefined;
@@ -17,6 +18,7 @@ export class User {
     this.street = obj ? obj.street : '';
     this.zipCode = obj ? obj.zipCode : null;
     this.city = obj ? obj.city : '';
+    this.img = obj ? obj.img : '';
   }
 
   public toJSON() {
@@ -27,7 +29,8 @@ export class User {
       birthDate: this.birthDate instanceof Date ? this.birthDate.getTime() : this.birthDate,
       street: this.street,
       zipCode: this.zipCode,
-      city: this.city
+      city: this.city,
+      img: this.img
     };
 
     // Konvertieren Sie `undefined` oder `null` in leere Strings

@@ -1,12 +1,24 @@
 <mat-card>
     <mat-card-title>Tasks</mat-card-title>
-    <ng-container *ngFor="let task of allTasks">
-        <mat-card class="singleTask" [routerLink]="['/tasks', task.id]">
-            <h1> {{ task.taskTitle }} </h1>
-            <h2> {{ task.customer }} </h2>
-            <h2> {{ task.userId }} </h2>
-        </mat-card>
-    </ng-container>
+    <div class="taskContainer">
+        <ng-container *ngFor="let task of allTasks">
+            <mat-card class="singleTask" [routerLink]="['/task', task.id]"
+                [ngStyle]="{'background-color': getBackgroundColor(task.customer)}">
+                <h2>{{ task.taskTitle }}</h2>
+                <h3>Status</h3>
+                <div class="taskStatus ml-16">
+                    <p [ngStyle]="{'background-color': task.status}" class="statusText"> {{ task.statusText }} </p>
+                </div>
+
+                <h3>Customer</h3>
+                <h4>{{ task.customer }}</h4>
+                <h3>Employee</h3>
+                <ng-container *ngIf="task.employee">
+                    <h4 *ngFor="let employee of task.employee.split(', ')">{{ employee }}</h4>
+                </ng-container>
+            </mat-card>
+        </ng-container>
+    </div>
 </mat-card>
 
 <button (click)="openDialog()" class="add-task-button" mat-fab color="primary" matTooltip="Add Task"

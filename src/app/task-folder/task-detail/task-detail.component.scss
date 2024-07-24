@@ -1,0 +1,65 @@
+.task-detail-header {
+    min-height: 300px;
+
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+
+    .header {
+        margin-left: 30px;
+        min-height: 120px;
+        h1 {
+            font-size: 36px;
+        }
+        h3 {
+            margin-bottom: 0px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.task-detail-lower-card {
+    mat-card-header {
+        padding: 0px;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+    mat-card-title {
+        font-size: 24px;
+        padding: 0px;
+    }
+    .cardContent {
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-bottom: 20px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        p {
+            font-size: 18px;
+            margin-bottom: 0px;
+        }
+        h3 {
+            margin-bottom: 0px;
+        }
+        .variable {
+            margin-left: 0px;
+        }
+    }
+}
+
+.pin-right-upper-corner {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.statusText {
+    display: inline-block;
+    padding: 4px 8px; /* Anpassbare Polsterung */
+    border-radius: 4px; /* Anpassbare Eckenrundung */
+    color: white; /* Textfarbe anpassen, falls erforderlich */
+    margin: 0; /* Entfernt den Standardaußenabstand des p-Tags */
+}

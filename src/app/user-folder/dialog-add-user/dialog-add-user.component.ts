@@ -11,14 +11,13 @@ import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 import { AppComponent } from '../../app.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [CommonModule, MatDialogModule, FormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, AppComponent, MatProgressBarModule, MatButtonModule],
+  imports: [CommonModule, MatDialogModule, FormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, AppComponent, MatProgressBarModule, MatButtonModule, MatSelectModule],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss']
 })
@@ -27,21 +26,23 @@ export class DialogAddUserComponent implements OnInit {
   birthDate: Date | null = null;
   loading = false;
 
+  genders = [
+    { value: 'man.png', viewValue: 'Male' },
+    { value: 'lady.png', viewValue: 'Female' }
+  ];
+
   firestore: Firestore = inject(Firestore);
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
-  ngOnInit(): void {
 
-  }
-
-
+  ngOnInit(): void {}
 
   getUser() {
     return collection(this.firestore, 'users');
-  } 
+  }
 
   getSingleDoc(colId: string, docId: string) {
-      return doc(collection(this.firestore, colId), docId);
+    return doc(collection(this.firestore, colId), docId);
   }
 
   async saveUser() {
@@ -55,4 +56,3 @@ export class DialogAddUserComponent implements OnInit {
     this.dialogRef.close();
   }
 }
-

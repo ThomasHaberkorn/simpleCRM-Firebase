@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCard, MatCardTitle } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -18,7 +18,7 @@ import { DialogAddTaskComponent } from '../dialog-add-task/dialog-add-task.compo
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss'
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
 
   task = new Task();
   tasks$: Observable<any[]> = new Observable();
@@ -36,6 +36,25 @@ export class TaskComponent {
       }));
     });
     
+  }
+
+  getBackgroundColor(customer: string): string {
+    switch (customer) {
+      case 'Walt Disney Company':
+        return '#FFD700'; // Gold
+      case 'Paramount Pictures':
+        return '#1E90FF'; // DodgerBlue
+      case 'Universal Pictures':
+        return '#32CD32'; // LimeGreen
+      case 'Warner Bros. Entertainment':
+        return '#FF4500'; // OrangeRed
+      case '20th Century Studios':
+        return '#DAA520'; // GoldenRod
+      case 'MGM Metro-Goldwyn-Mayer':
+        return '#8A2BE2'; // BlueViolet
+      default:
+        return '#FFFFFF'; // White
+    }
   }
 
   convertToDate(timestamp: any): Date {

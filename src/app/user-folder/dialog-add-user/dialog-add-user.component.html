@@ -2,8 +2,20 @@
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <h1 mat-dialog-title>Add User</h1>
     <mat-dialog-content>
+
         <div>
-            <mat-form-field class="mt-6 mr-16" appearance="outline">
+            <mat-form-field appearance="outline" class="full-width mt-6">
+                <mat-label>Please select your gender</mat-label>
+                <mat-select [(value)]="user.img">
+                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="First Name">
                 <!-- <mat-hint>Please enter a name</mat-hint> -->

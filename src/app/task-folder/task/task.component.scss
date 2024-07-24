@@ -6,7 +6,40 @@
 
 .singleTask {
     border: 2px solid #f0f0f0;
-    max-width: 200px;
+    width: 100%;
+    max-width: 250px;
     min-height: 100px;
     margin: 16px;
+    h4,
+    h2,
+    h3 {
+        margin-left: 16px;
+        margin-bottom: 4px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 16px;
+        line-height: 14px;
+        margin-top: 8px;
+    }
+    h4 {
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+
+.taskContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.statusText {
+    display: inline-block;
+    padding: 4px 8px; /* Anpassbare Polsterung */
+    border-radius: 4px; /* Anpassbare Eckenrundung */
+    color: white; /* Textfarbe anpassen, falls erforderlich */
+    margin: 0; /* Entfernt den Standardaußenabstand des p-Tags */
 }

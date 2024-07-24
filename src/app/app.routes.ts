@@ -5,6 +5,7 @@ import { UserDetailComponent } from './user-folder/user-detail/user-detail.compo
 import { CustomerDetailComponent } from './customer-folder/customer-detail/customer-detail.component';
 import { TaskComponent } from './task-folder/task/task.component';
 import { CustomerComponent } from './customer-folder/customer/customer.component';
+import { TaskDetailComponent } from './task-folder/task-detail/task-detail.component';
 
 export const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path: 'customer', component: CustomerComponent},
     {path: 'user/:id', component: UserDetailComponent},
     {path: 'customer/:id', component: CustomerDetailComponent},
-    {path: 'task', component: TaskComponent}
+    {path: 'task', component: TaskComponent},
+    {path: 'task/:id', component: TaskDetailComponent}
 ];

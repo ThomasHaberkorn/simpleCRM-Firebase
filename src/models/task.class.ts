@@ -62,6 +62,8 @@ export class Task {
   zipCode: number | null;
   city: string;
   employee: string;
+  status: string;
+  statusText: string;
 
   constructor(obj?: any) {
     this.id = obj ? obj.id : undefined;
@@ -75,6 +77,8 @@ export class Task {
     this.zipCode = obj ? obj.zipCode : null;
     this.city = obj ? obj.city : '';
     this.employee = obj ? obj.employee : '';
+    this.status = obj ? obj.status : '';
+    this.statusText = obj ? obj.statusText : '';
   }
 
   public toJSON() {
@@ -88,7 +92,9 @@ export class Task {
       endDate: this.endDate instanceof Date ? this.endDate.getTime() : this.endDate,
       zipCode: this.zipCode,
       city: this.city,
-      employee: this.employee
+      employee: this.employee,
+      status: this.status,
+      statusText: this.statusText
     };
 
     // Konvertieren Sie `undefined` oder `null` in leere Strings
@@ -101,3 +107,4 @@ export class Task {
     return data;
   }
 }
+

@@ -42,6 +42,7 @@ export class UserDetailComponent implements OnInit {
       if (user) {
         this.user = user;
       }
+      console.log(this.user);
     });
     
   }
