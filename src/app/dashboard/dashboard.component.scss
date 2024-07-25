@@ -1,6 +1,3 @@
-@import 'primeng/resources/themes/lara-light-blue/theme.css';
-@import 'primeng/resources/primeng.css';
-
 .dgray {
     background-color: #141d2f;
 }
@@ -16,9 +13,5 @@
     .donutChart {
         width: 400px;
         height: 400px;
-        p-chart {
-            canvas {
-            }
-        }
     }
 }
