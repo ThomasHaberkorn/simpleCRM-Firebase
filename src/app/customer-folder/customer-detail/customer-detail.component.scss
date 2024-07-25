@@ -5,7 +5,6 @@
     display: flex;
     align-items: flex-end;
     flex-direction: row;
-    // justify-content: flex-end;
     img {
         width: 130px;
         height: 130px;
@@ -21,6 +20,12 @@
         }
         p {
             font-size: 18px;
+            a {
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+                font-weight: 600;
+            }
         }
     }
 }

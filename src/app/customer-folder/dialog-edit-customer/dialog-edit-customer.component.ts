@@ -40,11 +40,9 @@ export class DialogEditCustomerComponent implements OnInit{
 
   async saveCustomer() {
     this.loading = true;
-  
     const customerDocRef = doc(this.firestore, `customers/${this.customer.id}`);
     await updateDoc(customerDocRef, this.customer.toJSON());
     this.loading = false;
     this.dialogRef.close();
   }
-
 }

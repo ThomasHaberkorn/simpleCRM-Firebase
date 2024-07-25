@@ -32,9 +32,10 @@ const userConverter: FirestoreDataConverter<User> = {
 })
 export class AppComponent {
   title = 'simple-crm';
-
- 
   firestore: Firestore = inject(Firestore);
+
+  
+  
 
   constructor() {
 

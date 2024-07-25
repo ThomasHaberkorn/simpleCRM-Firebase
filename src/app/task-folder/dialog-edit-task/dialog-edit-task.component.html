@@ -1,1 +1,28 @@
-<p>dialog-edit-task works!</p>
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Customer</h1>
+    <mat-dialog-content>
+
+        <div>
+            <mat-form-field class="mt-6 mr-16 full-width" appearance="outline">
+                <mat-label>Task Title</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.taskTitle" matInput placeholder="Task Title">
+                <!-- <mat-hint>Please enter a name</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Customer</mat-label>
+                <mat-select [(ngModel)]="task.customer">
+                    <mat-option *ngFor="let customer of customerList" [value]="customer">{{ customer }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>

@@ -12,7 +12,7 @@ import { Firestore, collection, addDoc, getDocs } from '@angular/fire/firestore'
 import { AppComponent } from '../../app.component';
 import { Task } from '../../../models/task.class';
 import { MatSelectModule } from '@angular/material/select';
-import { Customer } from '../../../models/customer.class';
+// import { Customer } from '../../../models/customer.class';
 
 @Component({
   selector: 'app-dialog-add-task',
@@ -67,21 +67,6 @@ export class DialogAddTaskComponent implements OnInit {
     });
   }
 
- 
-
-  // async saveTask(): Promise<void> {
-  //   this.loading = true;
-  //   if (this.endDate) {
-  //     this.task.endDate = this.endDate.getTime();
-  //   }
-  //   this.task.employee = this.employee.value?.join(', ') || ''; // store selected employees as a comma-separated string
-  //   this.task.customer = this.customer.value || ''; // store selected customer
-  //   const usersRef = collection(this.firestore, 'tasks');
-  //   await addDoc(usersRef, this.task.toJSON());
-  //   this.loading = false;
-  //   this.dialogRef.close();
-  // }
-
   onStatusChange(statusValue: string): void {
     const selectedStatus = this.statuses.find(status => status.value === statusValue);
     if (selectedStatus) {
@@ -95,8 +80,8 @@ export class DialogAddTaskComponent implements OnInit {
     if (this.endDate) {
       this.task.endDate = this.endDate.getTime();
     }
-    this.task.employee = this.employee.value?.join(', ') || ''; // store selected employees as a comma-separated string
-    this.task.customer = this.customer.value || ''; // store selected customer
+    this.task.employee = this.employee.value?.join(', ') || ''; 
+    this.task.customer = this.customer.value || ''; 
     const usersRef = collection(this.firestore, 'tasks');
     await addDoc(usersRef, this.task.toJSON());
     console.log('Task added', this.task);

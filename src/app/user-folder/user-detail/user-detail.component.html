@@ -11,7 +11,7 @@
     <img src="assets/img/{{ user.img }}" alt="">
     <div class="header">
         <h1>{{ user.firstName }} {{ user.lastName }}</h1>
-        <p>E-Mail: {{ user.eMail }}</p>
+        <p>E-Mail: <a href="mailto:{{ user.eMail }}">{{ user.eMail }}</a></p>
     </div>
 </mat-card>
 

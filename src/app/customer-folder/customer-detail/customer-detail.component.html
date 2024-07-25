@@ -12,7 +12,7 @@
     <div class="header">
         <h1>Contact person: </h1>
         <h1>{{ customer.firstName }} {{ customer.lastName }}</h1>
-        <p>E-Mail: {{ customer.eMail }}</p>
+        <p>E-Mail: <a href="mailto:{{ customer.eMail }}">{{ customer.eMail }}</a></p>
     </div>
 </mat-card>
 

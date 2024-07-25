@@ -13,6 +13,7 @@ import { Task } from '../../../models/task.class';
 import { DialogEditTaskComponent } from '../dialog-edit-task/dialog-edit-task.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { DialogEditAddressComponent } from '../../user-folder/dialog-edit-address/dialog-edit-address.component';
+import { DialogEditTaskLowerCardComponent } from '../dialog-edit-task-lower-card/dialog-edit-task-lower-card.component';
 // import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
@@ -34,7 +35,6 @@ export class TaskDetailComponent implements OnInit {
        this.route.params.subscribe(params => {
       this.taskId = params['id']; 
       this.getTask();
-      console.log(this.task);
     });
    
   }
@@ -61,7 +61,7 @@ export class TaskDetailComponent implements OnInit {
       case 'Warner Bros. Entertainment':
         return '#FF4500'; // OrangeRed
       case '20th Century Studios':
-        return '#DAA520'; // GoldenRod
+        return '#14b8a6'; // Teal
       case 'MGM Metro-Goldwyn-Mayer':
         return '#8A2BE2'; // BlueViolet
       default:
@@ -76,9 +76,9 @@ export class TaskDetailComponent implements OnInit {
     });
   }
 
-  editAddressDetail() {
+  editDetailLowerCard() {
     this.task.id = this.taskId;
-    this.dialog.open(DialogEditAddressComponent, {
+    this.dialog.open(DialogEditTaskLowerCardComponent, {
       data: { task: this.task }
     });
   }

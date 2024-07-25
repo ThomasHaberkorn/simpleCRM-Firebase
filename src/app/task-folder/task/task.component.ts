@@ -49,7 +49,7 @@ export class TaskComponent implements OnInit {
       case 'Warner Bros. Entertainment':
         return '#FF4500'; // OrangeRed
       case '20th Century Studios':
-        return '#DAA520'; // GoldenRod
+        return '#14b8a6'; // Teal
       case 'MGM Metro-Goldwyn-Mayer':
         return '#8A2BE2'; // BlueViolet
       default:

@@ -1,0 +1,88 @@
+<!-- <div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Address</h1>
+    <mat-dialog-content>
+
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Responsible</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.employee" matInput placeholder="City">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="mr-16" appearance="outline">
+                <mat-label>Status</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.status" matInput placeholder="Zip code">
+            </mat-form-field>
+
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div> -->
+
+<!-- <div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Task</h1>
+    <mat-dialog-content>
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Responsible</mat-label>
+                <mat-select [formControl]="employeeControl" multiple>
+                    <mat-option *ngFor="let employee of employeeList" [value]="employee">{{ employee }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="task.status">
+                    <mat-option *ngFor="let status of statuses" [value]="status.value">{{ status.viewValue
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div> -->
+
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Edit Task</h1>
+    <mat-dialog-content>
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Responsible</mat-label>
+                <mat-select [formControl]="employeeControl" multiple>
+                    <mat-option *ngFor="let employee of employeeList" [value]="employee">{{ employee }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="task.status" (selectionChange)="onStatusChange($event.value)">
+                    <mat-option *ngFor="let status of statuses" [value]="status.value">{{ status.viewValue
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-stroked-button color="primary" (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>

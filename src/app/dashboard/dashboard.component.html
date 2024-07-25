@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="dashboardContainer">
+    <mat-card>
+        <h1>Portfoliopool</h1>
+        <div class="card flex justify-content-center donutChart">
+            <p-chart type="doughnut" [data]="data" [options]="options" />
+        </div>
+    </mat-card>
+    <mat-card>
+        <h1>Auslastung</h1>
+    </mat-card>
+</div>
