@@ -1,11 +1,22 @@
 <div class="dashboardContainer">
-    <mat-card>
+    <mat-card class="donutContainer">
         <h1>Portfoliopool</h1>
         <div class="card flex justify-content-center donutChart">
             <p-chart type="doughnut" [data]="data" [options]="options" />
         </div>
     </mat-card>
-    <mat-card>
+    <mat-card class="donutContainer">
         <h1>Auslastung</h1>
+        <app-chart class="barContainer"></app-chart>
+    </mat-card>
+</div>
+<div class="dashboardContainer">
+    <mat-card (click)="navigateTo('customer')" class="pointer">
+        <h1>Customer</h1>
+        <app-customer-preview class="w400"></app-customer-preview>
+    </mat-card>
+    <mat-card (click)="navigateTo('user')" class="pointer">
+        <h1>Employees</h1>
+        <app-user-preview class="w400"></app-user-preview>
     </mat-card>
 </div>

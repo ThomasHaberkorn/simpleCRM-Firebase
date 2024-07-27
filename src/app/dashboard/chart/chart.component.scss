@@ -1,0 +1,15 @@
+@media (max-width: 500px) {
+    .barChart {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 370px) {
+    .barChart {
+        width: 80%;
+        height: 80%;
+    }
+}

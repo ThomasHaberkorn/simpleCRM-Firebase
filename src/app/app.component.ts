@@ -10,6 +10,7 @@ import { inject } from '@angular/core';
 import { Firestore, collectionData, collection, FirestoreDataConverter, DocumentData, QueryDocumentSnapshot, SnapshotOptions } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.class';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 const userConverter: FirestoreDataConverter<User> = {
@@ -25,7 +26,7 @@ const userConverter: FirestoreDataConverter<User> = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatSidenavModule, MatIconModule, RouterModule, MatButtonModule, MatDialogModule],
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatSidenavModule, MatIconModule, RouterModule, MatButtonModule, MatDialogModule, MatMenuModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 

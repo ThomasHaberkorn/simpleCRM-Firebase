@@ -51,8 +51,34 @@ mat-toolbar-row {
     }
 }
 
+.mediaMenu {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+}
+
 .router-container {
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+}
+
+@media (max-width: 1270px) {
+    .sidenav {
+        display: none;
+    }
+    .mediaMenu {
+        display: block;
+    }
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .router-container {
+        padding-left: 6px;
+        padding-right: 24px;
+    }
 }

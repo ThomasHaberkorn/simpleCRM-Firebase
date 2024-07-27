@@ -43,3 +43,17 @@
     color: white;
     margin: 0;
 }
+
+@media (max-width: 500px) {
+    .taskMainContainer {
+        margin-left: 16px;
+    }
+    mat-card-title {
+        margin-left: 8px;
+        margin-top: 8px;
+    }
+    .add-task-button {
+        right: 26px;
+        bottom: 26px;
+    }
+}

@@ -6,6 +6,12 @@ import { Task } from '../../models/task.class';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { MatCard } from '@angular/material/card';
+import { UserComponent } from '../user-folder/user/user.component';
+import { CustomerComponent } from "../customer-folder/customer/customer.component";
+import { ChartComponent } from "./chart/chart.component";
+import { Router } from '@angular/router';
+import { UserPreviewComponent } from '../user-folder/user-preview/user-preview.component';
+import { CustomerPreviewComponent } from '../customer-folder/customer-preview/customer-preview.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +19,13 @@ import { MatCard } from '@angular/material/card';
   imports: [
     CommonModule,
     ChartModule,
-    MatCard
-  ],
+    MatCard,
+    UserComponent,
+    CustomerComponent,
+    ChartComponent,
+    UserPreviewComponent,
+    CustomerPreviewComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -26,7 +37,7 @@ export class DashboardComponent implements OnInit {
   tasks$: Observable<any[]> = new Observable();
   allTasks: Task[] = [];
 
-  constructor(public dialog: MatDialog, private firestore: Firestore) { }
+  constructor(public dialog: MatDialog, private firestore: Firestore, private router: Router) { }
 
   ngOnInit(): void {
     const taskCollection = collection(this.firestore, 'tasks');
@@ -109,5 +120,8 @@ export class DashboardComponent implements OnInit {
         }
       ]
     };
+  }
+  navigateTo(page: string) {
+    this.router.navigate([`/${page}`]);
   }
 }

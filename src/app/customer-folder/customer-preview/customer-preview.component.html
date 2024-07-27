@@ -1,0 +1,14 @@
+<mat-card>
+    <table class="customer-table">
+        <tr>
+            <th>Company</th>
+            <th>Contact person</th>
+            <th>City</th>
+        </tr>
+        <tr *ngFor="let customer of allCustomers">
+            <td>{{ customer.companyName }}</td>
+            <td>{{ customer.firstName }} {{ customer.lastName}} </td>
+            <td>{{ customer.city }}</td>
+        </tr>
+    </table>
+</mat-card>

@@ -1,0 +1,14 @@
+<mat-card>
+    <table class="user-table">
+        <tr>
+            <th>Name</th>
+            <th>Birthdate</th>
+            <th>City</th>
+        </tr>
+        <tr *ngFor="let user of allUsers">
+            <td>{{ user.firstName }} {{ user.lastName}} </td>
+            <td>{{ user.birthDate | date: 'dd.MM.yyyy' }}</td>
+            <td>{{ user.city }}</td>
+        </tr>
+    </table>
+</mat-card>
