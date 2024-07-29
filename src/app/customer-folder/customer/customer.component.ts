@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { Customer } from '../../../models/customer.class';
 import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -24,7 +25,7 @@ export class CustomerComponent implements OnInit {
   customers$: Observable<any[]> = new Observable();
   allCustomers: Customer[] = [];
 
-  constructor(public dialog: MatDialog, private firestore: Firestore) { }
+  constructor(public dialog: MatDialog, private firestore: Firestore, private customerService: CustomerService) { }
 
   ngOnInit(): void {
     const usersCollection = collection(this.firestore, 'customers');
@@ -45,5 +46,11 @@ export class CustomerComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogAddCustomerComponent);
+  }
+
+  async delCustomer(customer: Customer, event: Event) {
+    event.stopPropagation(); 
+    await this.customerService.deleteCustomer(customer); 
+    this.allCustomers = this.allCustomers.filter(c => c.id !== customer.id); 
   }
 }

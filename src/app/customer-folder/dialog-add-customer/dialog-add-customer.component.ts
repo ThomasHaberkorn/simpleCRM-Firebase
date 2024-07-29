@@ -44,13 +44,28 @@ export class DialogAddCustomerComponent implements OnInit {
       return doc(collection(this.firestore, colId), docId);
   }
 
+  // async saveCustomer() {
+  //   this.loading = true;
+  
+  //   const customersRef = collection(this.firestore, 'customers');
+  //   await addDoc(customersRef, this.customer.toJSON());
+  //   this.loading = false;
+  //   this.dialogRef.close();
+  // }
+
+
   async saveCustomer() {
     this.loading = true;
-  
+
+    // Ensure id is either null or remove it from the object
+    const customerData = this.customer.toJSON();
+    if (customerData.id === undefined) {
+      delete customerData.id;
+    }
+
     const customersRef = collection(this.firestore, 'customers');
-    await addDoc(customersRef, this.customer.toJSON());
+    await addDoc(customersRef, customerData);
     this.loading = false;
     this.dialogRef.close();
   }
-
 }

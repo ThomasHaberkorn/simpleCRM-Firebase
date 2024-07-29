@@ -8,8 +8,10 @@ import { Task } from '../../../models/task.class';
 import { Observable } from 'rxjs/internal/Observable';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
 import { DialogAddTaskComponent } from '../dialog-add-task/dialog-add-task.component';
+import { TaskService } from '../task.service';
+
 
 @Component({
   selector: 'app-task',
@@ -24,7 +26,7 @@ export class TaskComponent implements OnInit {
   tasks$: Observable<any[]> = new Observable();
   allTasks: Task[] = []
 
-  constructor(public dialog: MatDialog, private firestore: Firestore) { }
+  constructor(public dialog: MatDialog, private firestore: Firestore, private taskService: TaskService) { }
 
   ngOnInit(): void {
     const taskCollection = collection(this.firestore, 'tasks');
@@ -64,6 +66,12 @@ export class TaskComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogAddTaskComponent);
+  }
+
+   async delTask(task: Task, event: Event) {
+    event.stopPropagation(); 
+    await this.taskService.deleteTask(task); 
+    this.allTasks = this.allTasks.filter(t => t.id !== task.id); 
   }
 
 }

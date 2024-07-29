@@ -4,17 +4,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { User } from '../../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
-import { Firestore, collection, collectionData, doc, docData } from '@angular/fire/firestore';
+import { Firestore, doc, docData } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Task } from '../../../models/task.class';
 import { DialogEditTaskComponent } from '../dialog-edit-task/dialog-edit-task.component';
 import { MatMenuModule} from '@angular/material/menu';
-import { DialogEditAddressComponent } from '../../user-folder/dialog-edit-address/dialog-edit-address.component';
 import { DialogEditTaskLowerCardComponent } from '../dialog-edit-task-lower-card/dialog-edit-task-lower-card.component';
-// import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+
 
 @Component({
   selector: 'app-task-detail',
@@ -27,7 +25,7 @@ export class TaskDetailComponent implements OnInit {
   task: Task = new Task();
   taskId = '';
   task$: Observable<Task | undefined> = of(undefined);
-
+  allTasks: Task[] = []
 
   constructor(public dialog: MatDialog, private firestore: Firestore, private route: ActivatedRoute) { }
 
@@ -82,10 +80,4 @@ export class TaskDetailComponent implements OnInit {
       data: { task: this.task }
     });
   }
-
-
-  openDialog() {
-    // this.dialog.open(DialogAddUserComponent);
-  }
-
 }

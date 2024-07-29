@@ -21,3 +21,9 @@ mat-dialog-actions {
     margin-left: 24px;
     margin-bottom: 10px;
 }
+
+@media (max-width: 650px) {
+    .dialog-container {
+        min-width: unset;
+    }
+}

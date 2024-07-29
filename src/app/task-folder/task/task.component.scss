@@ -44,6 +44,15 @@
     margin: 0;
 }
 
+.del {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+}
+
 @media (max-width: 500px) {
     .taskMainContainer {
         margin-left: 16px;

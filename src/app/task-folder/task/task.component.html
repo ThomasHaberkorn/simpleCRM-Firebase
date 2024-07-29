@@ -16,6 +16,9 @@
                 <ng-container *ngIf="task.employee">
                     <h4 *ngFor="let employee of task.employee.split(', ')">{{ employee }}</h4>
                 </ng-container>
+                <button mat-mini-fab class="del" (click)="delTask(task, $event)">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </mat-card>
         </ng-container>
     </div>

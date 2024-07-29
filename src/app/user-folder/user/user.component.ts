@@ -10,6 +10,7 @@ import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -24,7 +25,7 @@ export class UserComponent implements OnInit {
   users$: Observable<any[]> = new Observable();
   allUsers: User[] = [];
 
-  constructor(public dialog: MatDialog, private firestore: Firestore) { }
+  constructor(public dialog: MatDialog, private firestore: Firestore, private userService: UserService) { }
 
   ngOnInit(): void {
     const usersCollection = collection(this.firestore, 'users');
@@ -40,11 +41,17 @@ export class UserComponent implements OnInit {
 
   convertToDate(timestamp: any): Date {
     const date = new Date(timestamp);
-    return isNaN(date.getTime()) ? new Date() : date; // Rückgabe eines gültigen Datums oder eines Standardwertes
+    return isNaN(date.getTime()) ? new Date() : date; 
   }
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  async delUser(user: User, event: Event) {
+    event.stopPropagation(); 
+    await this.userService.deleteUser(user); 
+    this.allUsers = this.allUsers.filter(u => u.id !== user.id); 
   }
 }
 

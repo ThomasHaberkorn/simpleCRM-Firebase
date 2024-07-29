@@ -12,6 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { Firestore, doc, updateDoc, collection, getDocs } from '@angular/fire/firestore';
 import { Task } from '../../../models/task.class';
 import { MatSelectModule } from '@angular/material/select';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-dialog-edit-task',
@@ -43,7 +44,8 @@ export class DialogEditTaskComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogEditTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { task: Task }
+    @Inject(MAT_DIALOG_DATA) public data: { task: Task },
+    private taskService: TaskService
   ) {}
  async ngOnInit(): Promise<void> {
     if (this.data && this.data.task) {
@@ -67,6 +69,13 @@ export class DialogEditTaskComponent implements OnInit {
   
     const taskDocRef = doc(this.firestore, `tasks/${this.task.id}`);
     await updateDoc(taskDocRef, this.task.toJSON());
+    this.loading = false;
+    this.dialogRef.close();
+  }
+
+  async deleteTask(): Promise<void> {
+    this.loading = true;
+    await this.taskService.deleteTask(this.task); // Use the service to delete the task
     this.loading = false;
     this.dialogRef.close();
   }

@@ -9,6 +9,9 @@
             <td>{{ customer.companyName }}</td>
             <td>{{ customer.firstName }} {{ customer.lastName}} </td>
             <td>{{ customer.city }}</td>
+            <td>
+                <mat-icon class="del" (click)="delCustomer(customer, $event)">delete</mat-icon>
+            </td>
         </tr>
     </table>
 </mat-card>

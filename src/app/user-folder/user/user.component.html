@@ -9,8 +9,13 @@
             <td>{{ user.firstName }} {{ user.lastName}} </td>
             <td>{{ user.birthDate | date: 'dd.MM.yyyy' }}</td>
             <td>{{ user.city }}</td>
+            <td>
+                <mat-icon class="del" (click)="delUser(user, $event)">delete</mat-icon>
+            </td>
         </tr>
+
     </table>
+
 </mat-card>
 
 <button (click)="openDialog()" class="add-user-button" mat-fab color="primary" matTooltip="Add User"

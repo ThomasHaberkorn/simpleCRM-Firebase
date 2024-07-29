@@ -53,3 +53,24 @@
     right: 10px;
     top: 10px;
 }
+
+@media (max-width: 400px) {
+    .user-detail-header {
+        img {
+            width: 90px;
+            height: 90px;
+        }
+        .header {
+            h1 {
+                font-size: 24px;
+            }
+        }
+    }
+    .user-detail-lower-card {
+        mat-card-content {
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
